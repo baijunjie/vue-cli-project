@@ -1,0 +1,30 @@
+{
+  "common": {
+    "siteName": "データ分析システム",
+    "hint": "ヒント",
+    "ok": "確認",
+    "cancel": "キャンセル",
+    "close": "閉じる",
+    "search": "検索",
+    "back": "戻る",
+    "loading": "送信中...",
+    "create": "新規",
+    "createDone": "新規完了しました",
+    "createFail": "新規失敗しました",
+    "exec": "実行",
+    "execDone": "実行が始まります",
+    "execFail": "実行失敗しました",
+    "delete": "削除",
+    "deleteConfirm": "削除確認",
+    "deleteConfirmMsg": "削除してよろしいでしょうか",
+    "deleteDone": "削除完了しました",
+    "deleteFail": "削除失敗しました",
+    "stop": "終止",
+    "stopConfirm": "終止確認",
+    "stopConfirmMsg": "終止してよろしいでしょうか",
+    "stopDone": "終止完了しました",
+    "stopFail": "終止失敗しました",
+    "startDate": "開始日時",
+    "endDate": "終了日時"
+  }
+}

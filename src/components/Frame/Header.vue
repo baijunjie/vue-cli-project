@@ -1,0 +1,65 @@
+<template>
+  <section class="header">
+    <div class="title" v-text="$t('common.siteName')"></div>
+    <a href="javascript:void(0);" class="close" @click="logout"><i class="fa fa-power-off"></i></a>
+    <v-language-toggle class="language-toggle"></v-language-toggle>
+  </section>
+</template>
+
+<script>
+import LanguageToggle from '@/components/LanguageToggle'
+import { logout } from '@/utils'
+
+export default {
+  components: {
+    vLanguageToggle: LanguageToggle
+  },
+
+  methods: {
+    logout
+  }
+}
+</script>
+
+<style lang="less" scoped>
+@import '~less-lib';
+
+.header {
+  position: relative;
+  font-size: 24px;
+  color: #fff;
+  background-color: @blue;
+  .bdb(#fff);
+  .clear();
+
+  &:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    .bdb(darken(@blue, 10%));
+  }
+
+  .title {
+    margin-left: 20px;
+    float: left;
+    .text-glow();
+  }
+
+  .close {
+    margin-left: 20px;
+    float: right;
+    width: 60px;
+    height: 100%;
+    text-align: center;
+    .acl(none);
+    .bgcl(transparent rgba(0,0,0,.1));
+  }
+
+  .language-toggle {
+    float: right;
+    height: 100%;
+  }
+}
+</style>
