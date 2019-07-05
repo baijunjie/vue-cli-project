@@ -15,7 +15,7 @@
  */
 import VueRouter from 'vue-router'
 import pathToRegexp from 'path-to-regexp'
-import RouterView from '@/components/RouterView'
+import RouterView from './RouterView'
 
 const slashStartReg = new RegExp('^/+')
 const slashEndReg = new RegExp('/+$')
