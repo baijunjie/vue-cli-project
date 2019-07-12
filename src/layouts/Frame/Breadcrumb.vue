@@ -4,7 +4,7 @@
       v-for="meta in matched"
       :key="meta.path"
       :to="meta.empty ? null : meta.path">
-      <span v-text="$t(meta.i18n)"></span>
+      <span v-text="$t(meta.title)"></span>
     </el-breadcrumb-item>
   </el-breadcrumb>
 </template>

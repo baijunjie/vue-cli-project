@@ -26,12 +26,20 @@ const i18n = new I18n({
   numberFormats
 })
 
+i18n.languageMap = {
+  'en': 'English',
+  'ja': '日本語',
+  'zh-CN': '简体中文',
+  'zh-TW': '繁體中文'
+}
+
 i18n.config({
   fallbackLocale: 'ja',
   paths: {
     'ja': 'ja',
     'en': 'en',
-    'zh-CN': 'zh-CN'
+    'zh-CN': 'zh-CN',
+    'zh-TW': 'zh-TW'
   }
 })
 

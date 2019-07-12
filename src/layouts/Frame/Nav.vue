@@ -1,7 +1,6 @@
 <template>
   <el-menu
     :default-active="$route.fullPath"
-    :default-openeds="menus.map(item => item.path)"
     router
   >
     <template v-for="route in menus">
@@ -17,7 +16,7 @@
             class="submenu-title"
           >
             <i :class="route.meta.icon"></i>
-            <span v-text="$t(route.meta.i18n)"></span>
+            <span v-text="$t(route.meta.title)"></span>
           </template>
           <el-menu-item
             v-else
@@ -26,7 +25,7 @@
             :index="route.path"
           >
             <i :class="route.meta.icon"></i>
-            <span v-text="$t(route.meta.i18n)"></span>
+            <span v-text="$t(route.meta.title)"></span>
           </el-menu-item>
 
           <div
@@ -35,7 +34,7 @@
           >
             <el-menu-item v-if="!routeSub.meta.hide && routeSub.path" :index="routeSub.path">
               <i :class="routeSub.meta.icon"></i>
-              <span v-text="$t(routeSub.meta.i18n)"></span>
+              <span v-text="$t(routeSub.meta.title)"></span>
             </el-menu-item>
           </div>
         </el-submenu>
@@ -46,7 +45,7 @@
           :key="route.path"
         >
           <i :class="route.meta.icon"></i>
-          <span v-text="$t(route.meta.i18n)"></span>
+          <span v-text="$t(route.meta.title)"></span>
         </el-menu-item>
       </template>
     </template>

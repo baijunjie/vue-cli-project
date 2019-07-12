@@ -1,7 +1,7 @@
 const Login = {
   name: 'login',
   meta: {
-    i18n: 'views.Login.name'
+    title: 'views.Login.name'
   },
   component: () => import('@/views/Login')
 }
@@ -10,18 +10,26 @@ const Home = {
   name: 'home',
   path: '',
   meta: {
-    i18n: 'views.Home.name',
-    icon: 'fa fa-home',
-    frame: true
+    title: 'views.Home.name',
+    icon: 'fa fa-home'
   },
-  component: () => import('@/components/Frame'),
-  defaultChild: () => import('@/views/Home')
+  component: () => import('@/views/Home'),
+  layout: () => import('@/layouts/Frame')
+}
+
+const demo = {
+  path: 'demo',
+  redirect: 'demo/foo',
+  meta: {
+    title: 'menu.demo',
+    icon: 'fa fa-file'
+  }
 }
 
 const Foo = {
   name: 'foo',
   meta: {
-    i18n: 'views.demo.Foo.name',
+    title: 'views.demo.Foo.name',
     icon: 'fa fa-file'
   },
   component: () => import('@/views/demo/Foo')
@@ -30,7 +38,7 @@ const Foo = {
 const Bar = {
   name: 'bar',
   meta: {
-    i18n: 'views.demo.Bar.name',
+    title: 'views.demo.Bar.name',
     icon: 'fa fa-file'
   },
   component: () => import('@/views/demo/Bar')
@@ -40,7 +48,7 @@ const P404 = {
   name: '404',
   path: '/*',
   meta: {
-    i18n: 'views.404.name',
+    title: 'views.404.name',
     hide: true
   },
   component: () => import('@/views/404')
@@ -53,8 +61,9 @@ export default [
     ...Home,
     children: [
       {
-        ...Foo,
+        ...demo,
         children: [
+          Foo,
           Bar
         ]
       },

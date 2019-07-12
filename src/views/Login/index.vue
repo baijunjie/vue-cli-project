@@ -27,7 +27,6 @@
 <script>
 import metaMixin from '@/core/meta/mixin'
 import LanguageToggle from '@/components/LanguageToggle'
-import { setStorage } from '@/utils'
 
 const namespace = 'views.Login'
 export default {
@@ -71,14 +70,7 @@ export default {
       // 模拟登录
       setTimeout(() => {
         loading.close()
-
-        // 模拟用户数据
-        const userData = {
-          createDate: Date.now()
-        }
-
-        setStorage('userData', userData)
-
+        this.$store.commit('SET_USER', {})
         console.log('login success!')
 
         this.$router.push({

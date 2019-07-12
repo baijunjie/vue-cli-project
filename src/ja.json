@@ -26,5 +26,9 @@
     "stopFail": "終止失敗しました",
     "startDate": "開始日時",
     "endDate": "終了日時"
+  },
+
+  "menu": {
+    "demo": "Demo"
   }
 }

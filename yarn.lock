@@ -5104,10 +5104,10 @@ https-browserify@^1.0.0:
   resolved "https://registry.yarnpkg.com/https-browserify/-/https-browserify-1.0.0.tgz#ec06c10e0a34c0f2faf199f7fd7fc78fffd03c73"
   integrity sha1-7AbBDgo0wPL68Zn3/X/Hj//QPHM=
 
-i18n-combine-webpack-plugin@^0.2.0:
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/i18n-combine-webpack-plugin/-/i18n-combine-webpack-plugin-0.2.0.tgz#332fb569c864aa63b48f23433ea1af9c4472735e"
-  integrity sha512-PPp625VaRk3TvtNsOK8Vu30c5DcGkyng53kMkNdtG98LCG0geEvPbYWJDxj6G8OVWpqvmFjs/8dJ1+f5+RF3sA==
+i18n-combine-webpack-plugin@^0.2.2:
+  version "0.2.2"
+  resolved "https://registry.yarnpkg.com/i18n-combine-webpack-plugin/-/i18n-combine-webpack-plugin-0.2.2.tgz#c0467a35ad3aeda37f12bc428818a2777cf0ee14"
+  integrity sha512-6sTQ6oouOuDCO28N5fgTeSRLnciH11MROyvGi9r9gQ2XpWomDq5wRBJfuyWI03hbN/h0svJ5jFpsRFJuzN9Hog==
   dependencies:
     chokidar "^3.0.1"
     fs-extra "^8.0.1"

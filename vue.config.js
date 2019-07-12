@@ -13,7 +13,7 @@ module.exports = {
             'zh-CN.json',
             'zh-TW.json'
           ],
-          prefix: '*_'
+          safeMode: true
         }
       })
     ]

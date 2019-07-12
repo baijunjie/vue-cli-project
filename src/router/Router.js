@@ -15,6 +15,7 @@
  */
 import VueRouter from 'vue-router'
 import pathToRegexp from 'path-to-regexp'
+import _get from 'lodash/get'
 import RouterView from './RouterView'
 
 const slashStartReg = new RegExp('^/+')
@@ -39,12 +40,8 @@ export default class Router extends VueRouter {
         route.meta.empty = true
       }
 
-      if (typeof route.path === 'undefined') {
-        if (route.name) {
-          route.path = route.name
-        } else {
-          route.path = ''
-        }
+      if (route.path === undefined) {
+        route.path = route.name || ''
       }
 
       if (typeof route.path === 'string') {
@@ -72,25 +69,16 @@ export default class Router extends VueRouter {
         const children = vueRoute.children.concat()
 
         if (vueRoute.component) {
-          const defaultChild = {
-            meta: vueRoute.meta,
+          // 如果该路由不是一个layout，则将自己的组件作为默认子，然后用 RouterView 组件替换 component
+          children.unshift({
+            path: '',
             name: vueRoute.name,
-            path: ''
-          }
+            meta: vueRoute.meta,
+            component: vueRoute.component
+          })
 
           delete vueRoute.name
-
-          if (vueRoute.defaultChild) {
-            defaultChild.component = vueRoute.defaultChild
-          } else if (!vueRoute.frame) {
-            // 如果该路由不是一个frame，则将自己的组件作为默认页，然后用路由组件替换 component
-            defaultChild.component = vueRoute.component
-            vueRoute.component = null
-          }
-
-          if (defaultChild.component) {
-            children.unshift(defaultChild)
-          }
+          vueRoute.component = vueRoute.layout || null
         }
 
         if (!vueRoute.component) {
@@ -109,7 +97,7 @@ export default class Router extends VueRouter {
     let targetRoute
 
     routes.some(route => {
-      if (route[key] === value ||
+      if (_get(route, key) === value ||
         (key === 'path' &&
         pathToRegexp(route[key]).exec(value))) {
         targetRoute = route
@@ -128,7 +116,7 @@ export default class Router extends VueRouter {
     let targetRoute
 
     routes.some((route, i) => {
-      if (route[key] === value ||
+      if (_get(route, key) === value ||
         (key === 'path' &&
         pathToRegexp(route[key]).exec(value))) {
         routes.splice(i, 1)

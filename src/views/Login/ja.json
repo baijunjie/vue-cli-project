@@ -1,8 +1,8 @@
 {
-    "name": "ログイン",
-    "userName": "ユーザー名",
-    "password": "パスワード",
-    "login": "ログイン",
-    "userNameNotEmpty": "ユーザー名は空にできません",
-    "passwordNotEmpty": "パスワードは空にできません"
+  "name": "ログイン",
+  "userName": "ユーザー名",
+  "password": "パスワード",
+  "login": "ログイン",
+  "userNameNotEmpty": "ユーザー名は空にできません",
+  "passwordNotEmpty": "パスワードは空にできません"
 }
