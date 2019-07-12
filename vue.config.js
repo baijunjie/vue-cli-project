@@ -6,7 +6,15 @@ module.exports = {
     plugins: [
       new I18nCombineWebpackPlugin({
         src: path.join(__dirname, './src/**/ja.json'),
-        dist: path.join(__dirname, './public/data/i18n')
+        dist: path.join(__dirname, './public/data/i18n'),
+        autoMerge: {
+          files: [
+            'en.json',
+            'zh-CN.json',
+            'zh-TW.json'
+          ],
+          prefix: '*_'
+        }
       })
     ]
   },

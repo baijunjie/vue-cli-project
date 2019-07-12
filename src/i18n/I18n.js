@@ -152,12 +152,6 @@ export default class I18n extends VueI18n {
       this.loadLanguage(locale)
         .then(message => {
           this.setLocale(locale)
-
-          if (!this._isReady) {
-            this._isReady = true
-            this.emit('ready', locale)
-          }
-
           resolve(message)
         })
         .catch(reject)
@@ -185,6 +179,12 @@ export default class I18n extends VueI18n {
       .then(message => {
         this.setMessages(locale, message)
         this.emit('requireLangDone', locale)
+
+        if (!this._isReady) {
+          this._isReady = true
+          this.emit('ready', locale)
+        }
+
         return message
       })
       .catch(err => {
