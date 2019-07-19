@@ -13,7 +13,9 @@ export default {
   mixins: [metaMixin],
 
   data () {
-    return {}
+    return {
+
+    }
   },
 
   methods: {

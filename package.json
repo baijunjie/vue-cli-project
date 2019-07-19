@@ -40,6 +40,7 @@
     "i18n-combine-webpack-plugin": "^0.3.0",
     "less": "^3.0.4",
     "less-loader": "^4.1.0",
+    "terser-webpack-plugin": "^1.3.0",
     "vue-template-compiler": "^2.6.10"
   }
 }
