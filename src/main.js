@@ -10,22 +10,6 @@ import App from './App.vue'
 
 Vue.config.productionTip = false
 
-// 登录验证钩子
-router.beforeEach((to, from, next) => {
-  if (to.name !== 'login' && !store.getters.userData) {
-    router.push({
-      name: 'login'
-    })
-  } else if (to.name === 'login' && store.getters.userData) {
-    router.push({
-      name: 'home'
-    })
-  } else {
-    next()
-  }
-})
-
-i18n.setLanguage('ja')
 i18n.on('ready', () => {
   /* eslint-disable no-new */
   new Vue({

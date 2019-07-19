@@ -27,21 +27,18 @@ i, em { font-style: normal; }
 .label-sky { background-color: @sky; }
 .label-gray { background-color: @gray; }
 
-.text-center {
-  text-align: center;
-}
-
-.text-left {
-  text-align: left;
-}
-
-.text-right {
-  text-align: right;
-}
-
 .hide { visibility: hidden !important; }
 .none, [v-cloak] { display: none !important; }
-.nowrap { white-space: nowrap !important; }
+.full { width: 100% !important; }
+.text-left { text-align: left !important; }
+.text-right { text-align: right !important; }
+.text-center { text-align: center !important; }
+.text-nowrap { white-space: nowrap !important; }
+
+.disabled-opacity {
+  opacity: .4 !important;
+  pointer-events: none !important;
+}
 
 
 .screen-pc-big({

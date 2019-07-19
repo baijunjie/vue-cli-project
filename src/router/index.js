@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from './Router'
 import routes from './routes'
+import interceptor from './interceptor'
 
 Vue.use(Router)
 
@@ -10,5 +11,6 @@ const router = new Router({
 })
 
 router.setRoutes(routes)
+interceptor(router)
 
 export default router

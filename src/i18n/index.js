@@ -43,4 +43,6 @@ i18n.config({
   }
 })
 
+i18n.setLanguage('ja')
+
 export default i18n

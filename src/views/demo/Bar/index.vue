@@ -1,6 +1,6 @@
 <template>
-  <section>
-    <h1 class="title" v-text="T('name')"></h1>
+  <section class="text-center">
+    <h1 v-text="T('name')"></h1>
     <router-link to="/">Go to Home</router-link>
   </section>
 </template>
@@ -30,8 +30,4 @@ export default {
 <style lang="less" scoped>
 @import '~@/assets/styles/_.less';
 
-.title {
-  text-align: center;
-  line-height: 100px;
-}
 </style>
