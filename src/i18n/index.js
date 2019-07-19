@@ -1,6 +1,6 @@
 import Vue from 'vue'
-import I18n from './I18n'
-import i18nMixin from './mixin'
+import I18n from '@bjj/vue/I18n'
+import i18nMixin from '@bjj/vue/I18n/mixin'
 
 Vue.use(I18n)
 Vue.mixin(i18nMixin)

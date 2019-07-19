@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import Router from './Router'
+import Router from '@bjj/vue/Router'
 import routes from './routes'
 import interceptor from './interceptor'
 

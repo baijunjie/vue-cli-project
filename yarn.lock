@@ -670,6 +670,18 @@
     lodash "^4.17.11"
     to-fast-properties "^2.0.0"
 
+"@bjj/vue@^0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@bjj/vue/-/vue-0.1.0.tgz#a9dfdde89a86675fa34c7559ac1f3f0af1c2af66"
+  integrity sha512-BNyvwHvFRABXC0HFJBAYibtnHO/S0fFn+0CI4f5inCuiIO4Ou2bsKc7yQGSzMYRBNw/hegl1gNZLA9ZyqOCgOw==
+  dependencies:
+    axios "^0.19.0"
+    base-event-object "^0.5.0"
+    lodash "^4.17.11"
+    path-to-regexp "^3.0.0"
+    vue-i18n "^8.12.0"
+    vue-router "^3.0.7"
+
 "@cypress/listr-verbose-renderer@0.4.1":
   version "0.4.1"
   resolved "https://registry.yarnpkg.com/@cypress/listr-verbose-renderer/-/listr-verbose-renderer-0.4.1.tgz#a77492f4b11dcc7c446a34b3e28721afd33c642a"
@@ -10143,6 +10155,11 @@ vue-i18n@^8.11.2:
   resolved "https://registry.yarnpkg.com/vue-i18n/-/vue-i18n-8.11.2.tgz#92827fc42449f4602d2a0ddb437dfc4e3370d9d7"
   integrity sha512-STcpmxqBrG77SyWi7e0Yn/B3DjKR6mSDwYS4F/V7zoi+e/+CPbVb2TaBqFwnrkoDcPmRfjM7nTwsiRQQOGdifw==
 
+vue-i18n@^8.12.0:
+  version "8.12.0"
+  resolved "https://registry.yarnpkg.com/vue-i18n/-/vue-i18n-8.12.0.tgz#25b56e9fab7e78a0ff58b8b4fba336ad328cce11"
+  integrity sha512-Wh40dvkYZH0CntkhQQEed7nY8P/8xOOHy5Bl9W/WmmmW0oLYIL66XWwOqlcnNbLaL5HGN7XISydYVqXS0Sst9w==
+
 vue-jest@^3.0.4:
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/vue-jest/-/vue-jest-3.0.4.tgz#b6a2b0d874968f26fa775ac901903fece531e08b"
@@ -10177,7 +10194,7 @@ vue-meta@^2.0.4:
   dependencies:
     deepmerge "^3.3.0"
 
-vue-router@^3.0.3:
+vue-router@^3.0.3, vue-router@^3.0.7:
   version "3.0.7"
   resolved "https://registry.yarnpkg.com/vue-router/-/vue-router-3.0.7.tgz#b36ca107b4acb8ff5bc4ff824584059c23fcb87b"
   integrity sha512-utJ+QR3YlIC/6x6xq17UMXeAfxEvXA0VKD3PiSio7hBOZNusA1jXcbxZxVEfJunLp48oonjTepY8ORoIlRx/EQ==
