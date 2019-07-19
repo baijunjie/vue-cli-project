@@ -30,7 +30,7 @@ export default {
 </script>
 
 <style lang="less">
-@import '~less-lib';
+@import '~@/assets/styles/_.less';
 
 @header_height: 60px;  // 头部高度
 @nav_width: 250px;  // 左侧导航宽度

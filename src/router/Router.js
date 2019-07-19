@@ -2,11 +2,10 @@
  * VueRouter 增强
  *
  * 扩展方法：
- * - setRoutes   为路由实例设置 routes 配置对象
- * - getRoute    根据 key、value 获取在 routes 中对应的配置对象
- * - findRoute   根据 key、value 获取传入的 routes 中对应的配置对象（用于权限控制的修改，只有在调用 setRoutes 之前修改才有效）
- * - deleteRoute 根据 key、value 删除传入的 routes 中对应的配置对象（用于权限控制的删除，只有在调用 setRoutes 之前删除才有效）
- * - matchRoutes 传入 vue-router 的路由信息对象，返回一个路由数组，表示从根路由开始到该路由结束，所经过的所有路由组成的数组（用于生成面包屑）
+ * - setRoutes      为路由实例设置 routes 配置对象
+ * - findRoute      根据 key、value 获取对应的配置对象
+ * - filterRoutes   遍历传入的 routes，将会剔除返回值为 false 的路由（用于权限控制，只有在调用 setRoutes 之前删除才有效）
+ * - getMetaMatched 传入 vue-router 的路由对象，返回一个数组，表示从根路由开始到该路由结束，所经过的所有路由的 meta 对象组成的数组（用于生成面包屑）
  *
  * 扩展属性：
  * - routes      指向路由的配置对象 routes
@@ -21,14 +20,20 @@ import RouterView from './RouterView'
 const slashStartReg = new RegExp('^/+')
 const slashEndReg = new RegExp('/+$')
 
+function pathCorrect (path, parentPath) {
+  if (parentPath && !slashStartReg.test(path)) {
+    // 处理相对路径
+    return parentPath.replace(slashEndReg, '') + '/' + path.replace(slashStartReg, '')
+  } else {
+    return '/' + path.replace(slashStartReg, '')
+  }
+}
+
 export default class Router extends VueRouter {
   setRoutes (routes) {
-    this.routes = this.initRoutes(routes)
-    this.addRoutes(this.toVueRoutes(this.routes))
-  }
-
-  getRoute (key, value) {
-    return this.findRoute(key, value)
+    routes = this.initRoutes(routes)
+    this.routes = (this.routes || []).concat(routes)
+    this.addRoutes(this.toVueRoutes(routes))
   }
 
   initRoutes (routes, parentPath) {
@@ -45,12 +50,11 @@ export default class Router extends VueRouter {
       }
 
       if (typeof route.path === 'string') {
-        if (parentPath && !slashStartReg.test(route.path)) {
-          // 处理相对路径
-          route.path = parentPath.replace(slashEndReg, '') + '/' + route.path.replace(slashStartReg, '')
-        } else {
-          route.path = '/' + route.path.replace(slashStartReg, '')
-        }
+        route.path = pathCorrect(route.path, parentPath)
+      }
+
+      if (typeof route.redirect === 'string') {
+        route.redirect = pathCorrect(route.redirect, parentPath)
       }
 
       if (route.children && route.children.length) {
@@ -69,7 +73,6 @@ export default class Router extends VueRouter {
         const children = vueRoute.children.concat()
 
         if (vueRoute.component) {
-          // 如果该路由不是一个layout，则将自己的组件作为默认子，然后用 RouterView 组件替换 component
           children.unshift({
             path: '',
             name: vueRoute.name,
@@ -78,11 +81,11 @@ export default class Router extends VueRouter {
           })
 
           delete vueRoute.name
-          vueRoute.component = vueRoute.layout || null
+          delete vueRoute.component
         }
 
         if (!vueRoute.component) {
-          vueRoute.component = RouterView
+          vueRoute.component = vueRoute.layout || RouterView
         }
 
         vueRoute.children = this.toVueRoutes(children)
@@ -93,13 +96,13 @@ export default class Router extends VueRouter {
   }
 
   findRoute (key, value, routes = null) {
-    routes = routes || this.routes
+    routes = routes || this.routes || []
     let targetRoute
 
     routes.some(route => {
       if (_get(route, key) === value ||
         (key === 'path' &&
-        pathToRegexp(route[key]).exec(value))) {
+          pathToRegexp(route[key]).exec(value))) {
         targetRoute = route
         return targetRoute
       } else if (route.children && route.children.length) {
@@ -111,50 +114,49 @@ export default class Router extends VueRouter {
     return targetRoute
   }
 
-  deleteRoute (key, value, routes = null) {
-    routes = routes || this.routes
-    let targetRoute
-
-    routes.some((route, i) => {
-      if (_get(route, key) === value ||
-        (key === 'path' &&
-        pathToRegexp(route[key]).exec(value))) {
-        routes.splice(i, 1)
-        targetRoute = route
-        return targetRoute
-      } else if (route.children && route.children.length) {
-        targetRoute = this.deleteRoute(key, value, route.children)
-        return targetRoute
+  filterRoutes (routes, callback) {
+    routes = routes || []
+    const newRoutes = []
+    for (const route of routes) {
+      const returnValue = callback(route)
+      if (!returnValue) continue
+      if (route.children && route.children.length) {
+        route.children = this.filterRoutes(route.children, callback)
       }
-    })
-
-    return targetRoute
+      newRoutes.push(route)
+    }
+    return newRoutes
   }
 
   getMetaMatched (route = null) {
     route = route || this.currentRoute
     const fullPath = route.fullPath
 
-    let meta = route.meta
-
     // 解析路径中的参数
     const keys = []
     const result = pathToRegexp(route.path, keys).exec(fullPath)
-    const params = {}
+    const params = route.params || {}
     if (result) {
       keys.forEach((item, i) => {
         params[item.name] = result[i + 1]
       })
     }
 
-    meta.path = fullPath
+    let meta = Object.assign({}, route.meta, {
+      path: fullPath
+    })
+    if (route.name) meta.name = route.name
+    if (route.redirect) meta.redirect = route.redirect
     const matched = [meta]
 
     while (meta.parentPath) {
       const route = this.findRoute('path', meta.parentPath)
       if (!route) break
-      meta = route.meta
-      meta.path = pathToRegexp.compile(route.path)(params)
+      meta = Object.assign({}, route.meta, {
+        path: pathToRegexp.compile(route.path)(params)
+      })
+      if (route.name) meta.name = route.name
+      if (route.redirect) meta.redirect = route.redirect
       matched.push(meta)
     }
 

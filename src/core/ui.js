@@ -7,10 +7,13 @@ import i18n from '@/i18n'
 
 Vue.use(ElementUI, {
   i18n (...args) {
-    return i18n.t(args)
+    return i18n.t(...args)
   }
 })
 
 i18n.on('requireLangDone', (e, locale) => {
-  i18n.setMessages(locale, import(/* webpackChunkName: "element-ui-lang-[request]" */ `element-ui/lib/locale/lang/${locale}`))
+  import(/* webpackChunkName: "element-ui-lang-[request]" */ `element-ui/lib/locale/lang/${locale}`)
+    .then(messages => {
+      i18n.setMessages(locale, messages.default)
+    })
 })

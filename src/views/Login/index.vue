@@ -83,7 +83,7 @@ export default {
 </script>
 
 <style lang="less">
-@import '~less-lib';
+@import '~@/assets/styles/_.less';
 
 #login {
   height: 100%;

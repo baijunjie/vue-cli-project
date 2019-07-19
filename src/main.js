@@ -1,5 +1,7 @@
 import '@/core/meta'
+import '@/core/filter'
 import '@/core/ui'
+import '@/core/permissions'
 import Vue from 'vue'
 import router from '@/router'
 import store from '@/store'
@@ -23,7 +25,8 @@ router.beforeEach((to, from, next) => {
   }
 })
 
-i18n.setLanguage('ja').finally(() => {
+i18n.setLanguage('ja')
+i18n.on('ready', () => {
   /* eslint-disable no-new */
   new Vue({
     router,

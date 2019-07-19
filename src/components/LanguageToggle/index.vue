@@ -22,8 +22,8 @@ export default {
 }
 </script>
 
-<style lang="less" rel="stylesheet/less" scoped>
-@import '~less-lib';
+<style lang="less" scoped>
+@import '~@/assets/styles/_.less';
 
 .language-toggle {
   font-size: 14px;

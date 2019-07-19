@@ -5,7 +5,7 @@
 </template>
 
 <style lang="less">
-@import './assets/styles/styles.less';
+@import '~@/assets/styles/styles.less';
 
 html,
 body,

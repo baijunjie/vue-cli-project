@@ -22,7 +22,7 @@ export default {
 </script>
 
 <style lang="less" scoped>
-@import '~less-lib';
+@import '~@/assets/styles/_.less';
 
 .header {
   position: relative;
