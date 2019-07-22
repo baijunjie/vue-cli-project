@@ -670,6 +670,16 @@
     lodash "^4.17.11"
     to-fast-properties "^2.0.0"
 
+"@bjj/utils-browser@^0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@bjj/utils-browser/-/utils-browser-0.1.0.tgz#931062fa29b6b503e8fadf2f340c1f5fc0d2821c"
+  integrity sha512-gD4/a9IIUZQw+Xn7awy6FiO1adEnv17Fig/Qk5QPt/d8lhgvD/m2LBPfOgUwxDjkNDMd3Ny7l8syVH1RTy+d7A==
+
+"@bjj/utils@^0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@bjj/utils/-/utils-0.1.0.tgz#0c884e8371330f66d6645b15dca4fdbfd92ab928"
+  integrity sha512-bFy1RPSY5MwCeG6VofY8rT+Ut1hf/o/Zt5FWxVTvJWq3KizICQxBohpwwOroMigS+3wpbERObep/NKcc+3L2yA==
+
 "@bjj/vue@^0.1.0":
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/@bjj/vue/-/vue-0.1.0.tgz#a9dfdde89a86675fa34c7559ac1f3f0af1c2af66"

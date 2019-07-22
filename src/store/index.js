@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import storeMixin from './mixin'
-import cache from '@/utils/cache'
+import { cache } from '@/utils'
 
 Vue.use(Vuex)
 Vue.mixin(storeMixin)
