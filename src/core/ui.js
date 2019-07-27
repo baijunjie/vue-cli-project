@@ -11,7 +11,7 @@ Vue.use(ElementUI, {
   }
 })
 
-i18n.on('requireLangDone', (e, locale) => {
+i18n.on('loadLanguageDone', (e, locale) => {
   import(/* webpackChunkName: "element-ui-lang-[request]" */ `element-ui/lib/locale/lang/${locale}`)
     .then(messages => {
       i18n.setMessages(locale, messages.default)

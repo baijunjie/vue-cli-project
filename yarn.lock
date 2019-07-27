@@ -680,10 +680,10 @@
   resolved "https://registry.yarnpkg.com/@bjj/utils/-/utils-0.1.0.tgz#0c884e8371330f66d6645b15dca4fdbfd92ab928"
   integrity sha512-bFy1RPSY5MwCeG6VofY8rT+Ut1hf/o/Zt5FWxVTvJWq3KizICQxBohpwwOroMigS+3wpbERObep/NKcc+3L2yA==
 
-"@bjj/vue@^0.1.0":
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/@bjj/vue/-/vue-0.1.0.tgz#a9dfdde89a86675fa34c7559ac1f3f0af1c2af66"
-  integrity sha512-BNyvwHvFRABXC0HFJBAYibtnHO/S0fFn+0CI4f5inCuiIO4Ou2bsKc7yQGSzMYRBNw/hegl1gNZLA9ZyqOCgOw==
+"@bjj/vue@^0.1.1":
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/@bjj/vue/-/vue-0.1.1.tgz#5e5435c4c2b05435ed0d14ebdfd17cfc24c36359"
+  integrity sha512-o/6VWlSnSEXr7OS6vAbl9dXnBnkL3RV5NfUgpGIjjiX3ZWD8u/silL1wxmR0WTOokBgng50KLd6GIj5QAESygA==
   dependencies:
     axios "^0.19.0"
     base-event-object "^0.5.0"
@@ -7273,6 +7273,11 @@ npmlog@^4.0.2:
     console-control-strings "~1.1.0"
     gauge "~2.7.3"
     set-blocking "~2.0.0"
+
+nprogress@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/nprogress/-/nprogress-0.2.0.tgz#cb8f34c53213d895723fcbab907e9422adbcafb1"
+  integrity sha1-y480xTIT2JVyP8urkH6UIq28r7E=
 
 nth-check@^1.0.2, nth-check@~1.0.1:
   version "1.0.2"

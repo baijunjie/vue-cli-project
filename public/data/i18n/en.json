@@ -1,51 +1,79 @@
 {
+  "action__<<<": {
+    "delete": "削除する",
+    "finish": "終了する",
+    "publish": "公開する",
+    "suspend": "一時停止する",
+    "unpublish": "未公開にする"
+  },
   "common__<<<": {
+    "action": "操作",
     "back": "戻る",
     "cancel": "キャンセル",
     "close": "閉じる",
+    "content": "内容",
     "create": "新規",
-    "createDone": "新規完了しました",
-    "createFail": "新規失敗しました",
     "delete": "削除",
-    "deleteConfirm": "削除確認",
-    "deleteConfirmMsg": "削除してよろしいでしょうか",
-    "deleteDone": "削除完了しました",
-    "deleteFail": "削除失敗しました",
+    "edit": "編集",
     "endDate": "終了日時",
     "exec": "実行",
+    "hint": "ヒント",
+    "keyword": "キーワード",
+    "loading": "送信中...",
+    "login": "ログイン",
+    "logout": "ログアウト",
+    "ok": "OK",
+    "save": "保存",
+    "search": "検索",
+    "siteName": "システム",
+    "startDate": "開始日時",
+    "status": "ステータス",
+    "stop": "終止",
+    "title": "タイトル"
+  },
+  "error__<<<": {
+    "unauthorized": "承認確認に失敗しました",
+    "unknown": "予期せぬエラー"
+  },
+  "message__<<<": {
+    "createDone": "新規完了しました",
+    "createFail": "新規失敗しました",
+    "deleteConfirmContent": "削除してよろしいでしょうか",
+    "deleteConfirmTitle": "削除確認",
+    "deleteDone": "削除完了しました",
+    "deleteFail": "削除失敗しました",
     "execDone": "実行が始まります",
     "execFail": "実行失敗しました",
-    "hint": "ヒント",
-    "loading": "送信中...",
-    "ok": "確認",
-    "search": "検索",
-    "siteName": "データ分析システム",
-    "startDate": "開始日時",
-    "stop": "終止",
-    "stopConfirm": "終止確認",
-    "stopConfirmMsg": "終止してよろしいでしょうか",
-    "stopDone": "終止完了しました",
-    "stopFail": "終止失敗しました"
+    "finishConfirmContent": "終止してよろしいでしょうか",
+    "finishConfirmTitle": "終止確認",
+    "finishDone": "終止完了しました",
+    "finishFail": "終止失敗しました"
   },
-  "menu__<<<": {
-    "demo": "Demo"
+  "status__<<<": {
+    "deleted": "削除済み",
+    "finished": "終了済み",
+    "published": "公開中",
+    "suspended": "一時停止",
+    "unpublished": "未公開"
   },
   "views__<<<": {
     "404": {
-      "message": "ページが見つかりません",
+      "backToHome": "ホームに帰る",
+      "messageContent": "入力したURLが正しいことを確認するか、または下のボタンをクリックしてホームページに戻ってください。",
+      "messageTitle": "ページが見つかりません",
       "name": "404"
     },
     "Home": {
-      "name": "TOP",
+      "name": "Dashboard",
       "welcome": "ようこそ"
     },
     "Login": {
-      "login": "ログイン",
+      "capsLockIsOn": "キャップロックがオン",
       "name": "ログイン",
       "password": "パスワード",
-      "passwordNotEmpty": "パスワードは空にできません",
-      "userName": "ユーザー名",
-      "userNameNotEmpty": "ユーザー名は空にできません"
+      "passwordNotEmpty": "パスワードを入力してください",
+      "username": "ユーザー名",
+      "usernameNotEmpty": "ユーザー名を入力してください"
     },
     "demo": {
       "Bar": {
@@ -53,7 +81,8 @@
       },
       "Foo": {
         "name": "Foo"
-      }
+      },
+      "name": "Demo"
     }
   }
 }

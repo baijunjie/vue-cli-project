@@ -1,28 +1,33 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import storeMixin from './mixin'
-import { cache } from '@/utils'
 
 Vue.use(Vuex)
 Vue.mixin(storeMixin)
 
+// https://webpack.js.org/guides/dependency-management/#requirecontext
+const modulesFiles = require.context('./modules', true, /\.js$/)
+
+// you do not need `import app from './modules/app'`
+// it will auto require all vuex module from modules file
+const modules = modulesFiles.keys().reduce((modules, modulePath) => {
+  // set './app.js' => 'app'
+  const moduleName = modulePath.replace(/^\.\/(.*)\.\w+$/, '$1')
+  const value = modulesFiles(modulePath)
+  modules[moduleName] = value.default
+  return modules
+}, {})
+
 export default new Vuex.Store({
+  modules,
   state: () => ({
-    userData: null
+
   }),
   getters: {
-    userData (state) {
-      // 这里必需有 state 的读取操作，否则返回结果会被缓存
-      // 也就是说这个 getter 永远只会返回第一次访问的值
-      state.userData = cache.get('userData')
-      return state.userData
-    }
+
   },
   mutations: {
-    SET_USER (state, userData) {
-      state.userData = userData
-      cache.set('userData', userData, 8.64e7)
-    }
+
   },
   actions: {
 

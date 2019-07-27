@@ -6,10 +6,4 @@
 
 <style lang="less">
 @import '~@/assets/styles/styles.less';
-
-html,
-body,
-#app {
-  height: 100%;
-}
 </style>

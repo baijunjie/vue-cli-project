@@ -1,7 +1,7 @@
 import _ from 'lodash'
-import store from '@/store'
 export * from '@bjj/utils'
 export * from '@bjj/utils-browser'
+export { default as request } from './request'
 
 // 打印log (用于过滤 vue 生成的 getter、setter)
 export function log () {
@@ -17,8 +17,10 @@ export function log () {
   console.log(...args)
 }
 
-// 退出登录
-export function logout () {
-  store.commit('SET_USER', null)
-  location.reload()
+/**
+ * @param {string} path
+ * @returns {Boolean}
+ */
+export function isExternal (path) {
+  return /^(https?:|mailto:|tel:)/.test(path)
 }
