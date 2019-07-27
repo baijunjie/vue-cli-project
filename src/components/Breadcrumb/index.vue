@@ -31,10 +31,15 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="less" scoped>
 /deep/ .el-breadcrumb {
   display: inline-block;
   padding: 0 8px;
   vertical-align: middle;
+
+  .el-breadcrumb__inner a,
+  .el-breadcrumb__inner.is-link {
+    font-weight: 400;
+  }
 }
 </style>
