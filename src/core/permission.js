@@ -49,6 +49,6 @@ Vue.directive('perm', function (el, binding, vnode) {
       if (readonly) el.classList.add('readonly')
     }
   } else {
-    el.parentNode ? el.parentNode.removeChild(el) : (el.style.display = 'none')
+    el.parentNode ? el.parentNode.removeChild(el) : el.style.display = 'none'
   }
 })

@@ -7,14 +7,14 @@ import i18n from '@/i18n'
 
 // you do not need `import Switch from '@/components/ui/EsSwitch'`
 // it will auto require all UI components from components file
-const modulesFiles = require.context('@/components/elestyle', true, /\.vue$/)
-modulesFiles.keys().forEach(modulePath => {
-  // set './EsSwitch.vue'       => 'EsSwitch'
-  // set './EsSwitch/index.vue' => 'EsSwitch'
-  const moduleName = modulePath.replace(/^\.\/(.*?)(\/index)?\.\w+$/, '$1')
-  const value = modulesFiles(modulePath)
-  Vue.component(moduleName, value.default)
-})
+// const modulesFiles = require.context('@/components/elestyle', true, /\.vue$/)
+// modulesFiles.keys().forEach(modulePath => {
+//   // set './EsSwitch.vue'       => 'EsSwitch'
+//   // set './EsSwitch/index.vue' => 'EsSwitch'
+//   const moduleName = modulePath.replace(/^\.\/(.*?)(\/index)?\.\w+$/, '$1')
+//   const value = modulesFiles(modulePath)
+//   Vue.component(moduleName, value.default)
+// })
 
 Vue.use(ElementUI, {
   i18n (...args) {
