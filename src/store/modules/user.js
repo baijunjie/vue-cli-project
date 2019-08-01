@@ -60,7 +60,10 @@ export default {
       // 模拟登陆
       const res = await new Promise(resolve => {
         setTimeout(() => {
-          resolve({ token: 'xxx' })
+          resolve({
+            token: 'xxx',
+            role: 'ROLE_ADMIN'
+          })
         }, 1000)
       })
       commit('SET_USER', res)

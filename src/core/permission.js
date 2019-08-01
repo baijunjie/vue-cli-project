@@ -1,11 +1,9 @@
 import Vue from 'vue'
 
 const permission = {
-  roles: [ 'ROLE_MERCHANT_ADMIN', 'ROLE_MERCHANT_DEVELOPER', 'ROLE_MERCHANT_ANALYST', 'ROLE_MERCHANT_SUPPORT_SPECIALIST', 'ROLE_MERCHANT_VIEW_ONLY' ],
+  roles: [ 'ROLE_ADMIN', 'ROLE_DEVELOPER', 'ROLE_ANALYST', 'ROLE_SUPPORT_SPECIALIST', 'ROLE_VIEW_ONLY' ],
   map: {
-    'business': [ 1, 1, 1, 1, 1 ],
-    'business__create': [ 1, 0, 0, 0, 0 ],
-    'business__update': [ 1, 0, 0, 0, 0 ]
+    'admin__demo-read': [ 1, 1, 1, 1, 1 ]
   }
 }
 

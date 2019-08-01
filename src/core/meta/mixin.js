@@ -1,7 +1,7 @@
 export default {
   metaInfo () {
     const { namespace } = this.$options
-    if (!namespace || !this.$route || !this.$route.meta.title) return {}
+    if (!namespace || !this.$i18n || !this.$route || !this.$route.meta.title) return {}
     return {
       htmlAttrs: {
         lang: this.$i18n.locale

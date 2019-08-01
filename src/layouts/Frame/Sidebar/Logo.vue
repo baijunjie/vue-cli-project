@@ -1,9 +1,9 @@
 <template>
   <div class="sidebar-logo-container" :class="{ 'collapse': collapse }">
     <transition name="sidebarLogoFade">
-      <router-link key="expand" class="sidebar-logo-link" to="/">
+      <router-link class="sidebar-logo-link" to="/">
         <img src="@/assets/img/logo.png" class="sidebar-logo">
-        <h1 v-if="!collapse" class="sidebar-title">{{ title }} </h1>
+        <h1 class="sidebar-title">{{ title }} </h1>
       </router-link>
     </transition>
   </div>
@@ -28,6 +28,8 @@ export default {
 </script>
 
 <style lang="less" scoped>
+@import '~@/assets/styles/_.less';
+
 .sidebarLogoFade-enter-active {
   transition: opacity 1.5s;
 }
@@ -39,39 +41,47 @@ export default {
 
 .sidebar-logo-container {
   position: relative;
+  padding: 0 20px;
   width: 100%;
-  height: 50px;
-  line-height: 50px;
+  height: @headerHeight;
   background: #2b2f3a;
-  text-align: center;
   overflow: hidden;
 
-  & .sidebar-logo-link {
+  .sidebar-logo-link {
     height: 100%;
     width: 100%;
+    display: flex;
+    align-items: center;
+    align-content: center;
 
-    & .sidebar-logo {
+    .sidebar-logo {
       width: 32px;
       height: 32px;
-      vertical-align: middle;
-      margin-right: 12px;
+      margin-right: 10px;
     }
 
-    & .sidebar-title {
-      display: inline-block;
-      margin: 0;
+    .sidebar-title {
       color: #fff;
       font-weight: 600;
-      line-height: 50px;
-      font-size: 14px;
+      font-size: 18px;
       font-family: Avenir, Helvetica Neue, Arial, Helvetica, sans-serif;
-      vertical-align: middle;
+      white-space: nowrap;
     }
   }
 
   &.collapse {
-    .sidebar-logo {
-      margin-right: 0;
+    padding: 0;
+
+    .sidebar-logo-link {
+      justify-content: center;
+
+      .sidebar-logo {
+        margin-right: 0;
+      }
+
+      .sidebar-title {
+        display: none;
+      }
     }
   }
 }

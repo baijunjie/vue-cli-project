@@ -1,7 +1,14 @@
 import axios from 'axios'
+import qs from 'qs'
 import { Message } from 'element-ui'
 import i18n from '@/i18n'
 import store from '@/store'
+
+// set default headers
+// ?statusSet[]=20&statusSet[]=10 => ?statusSet=20&statusSet=10
+axios.defaults.paramsSerializer = function (params) {
+  return qs.stringify(params, { arrayFormat: 'repeat' })
+}
 
 // create an axios instance
 const service = axios.create({

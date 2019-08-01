@@ -7,7 +7,7 @@
   >
     <v-card
       class="d-inline-block text-xs-center"
-      color="rgba(0,0,0,0.5)"
+      color="rgba(0,0,0,.5)"
     >
       <v-card-text>
         <v-progress-circular

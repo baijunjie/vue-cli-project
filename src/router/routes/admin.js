@@ -16,6 +16,7 @@ export default {
       meta: {
         title: 'views.demo.name',
         icon: 'file',
+        perm: 'admin__demo-read',
         breadcrumbHidden: true
       },
       children: [
@@ -23,7 +24,8 @@ export default {
           name: 'foo',
           meta: {
             title: 'views.demo.Foo.name',
-            icon: 'file'
+            icon: 'file',
+            perm: 'admin__demo-read'
           },
           component: () => import('@/views/demo/Foo')
         },
@@ -31,7 +33,8 @@ export default {
           name: 'bar',
           meta: {
             title: 'views.demo.Bar.name',
-            icon: 'file'
+            icon: 'file',
+            perm: 'admin__demo-read'
           },
           component: () => import('@/views/demo/Bar')
         }

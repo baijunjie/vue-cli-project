@@ -91,7 +91,7 @@ export default {
     &.hideSidebar {
       .sidebar-container {
         pointer-events: none;
-        transition-duration: 0.3s;
+        transition-duration: .3s;
         transform: translate3d(-@sideBarWidth, 0, 0);
       }
     }
@@ -112,7 +112,7 @@ export default {
 
   .drawer-bg {
     background: #000;
-    opacity: 0.3;
+    opacity: .3;
     width: 100%;
     top: 0;
     height: 100%;
@@ -145,7 +145,7 @@ export default {
   right: 0;
   left: @sideBarWidth;
   z-index: 9;
-  transition: left 0.28s;
+  transition: left .3s;
 
   + .app-main {
     padding-top: @headerHeight;

@@ -28,7 +28,7 @@ export default function (router) {
           if (permissionMap) {
             next()
           } else {
-            permissionMap = store.dispatch('user/generatePermissionMap')
+            permissionMap = await store.dispatch('user/generatePermissionMap')
             const routes = router.filterRoutes(asyncRoutes, route => {
               const perm = route.meta && route.meta.perm
               return !perm || permissionMap[perm]

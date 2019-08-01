@@ -76,39 +76,38 @@ export default {
   height: 100%;
   overflow: hidden;
   background-color: @menuBg;
-  transition: width 0.28s;
-
-  // reset element-ui css
-  /deep/ .horizontal-collapse-transition {
-    transition: 0s width ease-in-out, 0s padding-left ease-in-out, 0s padding-right ease-in-out;
-  }
+  transition: width .3s;
 
   /deep/ .scrollbar-wrapper {
     overflow-x: hidden !important;
   }
 
   /deep/ .el-scrollbar__bar.is-vertical {
-    right: 0px;
+    right: 0;
   }
 
   /deep/ .el-scrollbar {
-    height: calc(100% - 50px);
+    height: calc(100% - @headerHeight);
   }
 
   /deep/ .is-horizontal {
     display: none;
   }
 
-  /deep/ a {
-    display: inline-block;
-    width: 100%;
-    overflow: hidden;
-  }
-
   /deep/ .el-menu {
     border: none;
+    width: 100%;
     height: 100%;
-    width: 100% !important;
+
+    a {
+      display: inline-block;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    &.el-menu--collapse {
+      width: 100%;
+    }
 
     // menu hover
     .submenu-title-noDropdown,
@@ -130,40 +129,6 @@ export default {
       &:hover {
         background-color: @subMenuHover !important;
       }
-    }
-
-    // when menu collapsed
-    .el-menu--vertical {
-      .nest-menu .el-submenu > .el-submenu__title,
-      .el-menu-item {
-        &:hover {
-          // you can use @subMenuHover
-          background-color: @menuHover !important;
-        }
-      }
-
-      // the scroll bar appears when the subMenu is too long
-      > .el-menu--popup {
-        max-height: 100vh;
-        overflow-y: auto;
-
-        &::-webkit-scrollbar-track-piece {
-          background: #d3dce6;
-        }
-
-        &::-webkit-scrollbar {
-          width: 6px;
-        }
-
-        &::-webkit-scrollbar-thumb {
-          background: #99a9bf;
-          border-radius: 20px;
-        }
-      }
-    }
-
-    .el-menu--collapse .el-menu .el-submenu {
-      min-width: @sideBarWidth !important;
     }
   }
 }

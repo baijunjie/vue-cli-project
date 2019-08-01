@@ -166,7 +166,7 @@ export default {
       opacity: 0;
       margin-bottom: 20px;
       animation-name: slideUp;
-      animation-duration: 0.5s;
+      animation-duration: .5s;
       animation-fill-mode: forwards;
     }
     &__headline {
@@ -177,8 +177,8 @@ export default {
       opacity: 0;
       margin-bottom: 10px;
       animation-name: slideUp;
-      animation-duration: 0.5s;
-      animation-delay: 0.1s;
+      animation-duration: .5s;
+      animation-delay: .1s;
       animation-fill-mode: forwards;
     }
     &__info {
@@ -188,8 +188,8 @@ export default {
       opacity: 0;
       margin-bottom: 30px;
       animation-name: slideUp;
-      animation-duration: 0.5s;
-      animation-delay: 0.2s;
+      animation-duration: .5s;
+      animation-delay: .2s;
       animation-fill-mode: forwards;
     }
     &__return-home {
@@ -206,8 +206,8 @@ export default {
       line-height: 36px;
       cursor: pointer;
       animation-name: slideUp;
-      animation-duration: 0.5s;
-      animation-delay: 0.3s;
+      animation-duration: .5s;
+      animation-delay: .3s;
       animation-fill-mode: forwards;
     }
     @keyframes slideUp {
