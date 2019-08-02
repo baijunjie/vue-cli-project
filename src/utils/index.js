@@ -5,6 +5,8 @@ export { default as request } from './request'
 
 // 打印log (用于过滤 vue 生成的 getter、setter)
 export function log () {
+  if (process.env.NODE_ENV === 'production') return
+
   let args = []
   Array.prototype.forEach.call(arguments, arg => {
     if (typeof arg === 'object') {

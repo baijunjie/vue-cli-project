@@ -1,4 +1,4 @@
-import { cache } from '@/utils'
+import { cache } from '@bjj/utils-browser'
 
 export default {
   namespaced: true,

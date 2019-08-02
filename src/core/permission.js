@@ -23,6 +23,8 @@ export function perm (permissionName) {
   return permissionMap[permissionName]
 }
 
+Vue.prototype.$perm = perm
+
 /**
  * perm 权限指令
  * 指令用法：

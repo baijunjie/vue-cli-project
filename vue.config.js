@@ -3,6 +3,8 @@ const I18nCombineWebpackPlugin = require('i18n-combine-webpack-plugin')
 const TerserPlugin = require('terser-webpack-plugin')
 
 module.exports = {
+  publicPath: process.env.VUE_APP_BASE_URL,
+  
   configureWebpack: () => {
     const config = {
       plugins: [

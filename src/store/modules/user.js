@@ -1,6 +1,6 @@
-// import { login, logout } from '@/api/user'
+import { cache } from '@bjj/utils-browser'
 import { generatePermissionsMap } from '@/core/permission'
-import { cache } from '@/utils'
+// import { login, logout } from '@/api/user'
 
 export default {
   namespaced: true,
