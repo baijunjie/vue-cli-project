@@ -1,5 +1,5 @@
 import { cache } from '@bjj/utils-browser'
-import { generatePermissionsMap } from '@/core/permission'
+import { generatePermissionMap } from '@/core/permission'
 // import { login, logout } from '@/api/user'
 
 export default {
@@ -48,9 +48,10 @@ export default {
       state.info = null
       state.token = ''
       state.role = ''
+      state.permissionMap = null
       cache.del('userData')
     },
-    SET_PERMISSIONS_MAP (state, data) {
+    SET_PERMISSION_MAP (state, data) {
       state.permissionMap = data
     }
   },
@@ -73,8 +74,8 @@ export default {
       // await logout()
     },
     generatePermissionMap ({ commit, getters }) {
-      const permissionsMap = generatePermissionsMap(getters.role)
-      commit('SET_PERMISSIONS_MAP', permissionsMap)
+      const permissionsMap = generatePermissionMap(getters.role)
+      commit('SET_PERMISSION_MAP', permissionsMap)
       return permissionsMap
     }
   }

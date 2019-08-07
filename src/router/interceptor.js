@@ -33,11 +33,11 @@ export default function (router) {
               const perm = route.meta && route.meta.perm
               return !perm || permissionMap[perm]
             })
-            router.setRoutes(routes)
+            router.reset().setRoutes(routes)
 
             // hack method to ensure that addRoutes is complete
             // set the replace: true, so the navigation will not leave a history record
-            next({ ...to, replace: true })
+            next({ path: to.fullPath, params: to.params, query: to.query, replace: true })
             NProgress.done()
           }
         } catch (error) {

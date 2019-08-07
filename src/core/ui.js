@@ -1,11 +1,11 @@
 import Vue from 'vue'
-import ElementUI from 'element-ui'
 import i18n from '@/i18n'
+import ElementUI from 'element-ui'
 
 // import Popup from '@/components/Popup'
 // Vue.use(Popup)
 
-// you do not need `import Switch from '@/components/ui/EsSwitch'`
+// you do not need `import EsSwitch from '@/components/ui/EsSwitch'`
 // it will auto require all UI components from components file
 // const modulesFiles = require.context('@/components/elestyle', true, /\.vue$/)
 // modulesFiles.keys().forEach(modulePath => {

@@ -9,7 +9,7 @@ const permission = {
 
 let permissionMap = {}
 
-export function generatePermissionsMap (role) {
+export function generatePermissionMap (role) {
   const index = permission.roles.indexOf(role)
   if (index < 0) return {}
   permissionMap = {}
@@ -31,7 +31,7 @@ Vue.prototype.$perm = perm
  *  - 在需要控制权限的组件上使用 v-perm:[permissionName] , 如下：
  *    <button v-perm:add >添加用户</button>
  *    <button v-perm:delete>删除用户</button>
- *    <button v-perm:edit @click="edit(record)">修改</button>
+ *    <button v-perm:edit>修改</button>
  *
  *  - 当前用户没有权限时，组件上使用了该指令则会被隐藏
  */

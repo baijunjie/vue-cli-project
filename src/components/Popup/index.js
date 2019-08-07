@@ -49,7 +49,7 @@ export default class Popup {
 
   _create (type, options, Component) {
     if (typeof options === 'string') options = { content: options }
-    const propsData = Object.assign(defaultOptions[type], options)
+    const propsData = Object.assign({}, defaultOptions[type], options)
 
     let close
     const wait = new Promise(resolve => {

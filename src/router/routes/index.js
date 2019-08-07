@@ -7,7 +7,7 @@ export const baseRoutes = [
     name: '404',
     meta: {
       title: 'views.404.name',
-      hide: true
+      menuHidden: true
     },
     component: () => import('@/views/404')
   }

@@ -5,20 +5,17 @@ import interceptor from './interceptor'
 
 Vue.use(Router)
 
-const router = createRouter()
-router.setRoutes(baseRoutes)
-interceptor(router)
-
-function createRouter () {
-  return new Router({
+Router.create = function () {
+  const router = new Router({
     mode: 'history',
     base: process.env.VUE_APP_BASE_URL,
     scrollBehavior: () => ({ y: 0 })
   })
+  router.setRoutes(baseRoutes)
+  return router
 }
 
-export function resetRouter () {
-  router.replace(createRouter()) // reset router
-}
+const router = Router.create()
+interceptor(router)
 
 export default router

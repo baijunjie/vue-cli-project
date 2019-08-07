@@ -680,10 +680,10 @@
   resolved "https://registry.yarnpkg.com/@bjj/utils/-/utils-0.1.0.tgz#0c884e8371330f66d6645b15dca4fdbfd92ab928"
   integrity sha512-bFy1RPSY5MwCeG6VofY8rT+Ut1hf/o/Zt5FWxVTvJWq3KizICQxBohpwwOroMigS+3wpbERObep/NKcc+3L2yA==
 
-"@bjj/vue@^0.1.3":
-  version "0.1.3"
-  resolved "https://registry.yarnpkg.com/@bjj/vue/-/vue-0.1.3.tgz#986dbceaaecdf133df0da88f05f4850395afcac9"
-  integrity sha512-CbuCsDwlnAxCVHL9kr8yriWWIyJzGUmbRpHagNZwT1h8UamPrhZppp3k9hAwF2PrSTD6Uyqjp6RGd3b/WBWF8A==
+"@bjj/vue@^0.1.4":
+  version "0.1.4"
+  resolved "https://registry.yarnpkg.com/@bjj/vue/-/vue-0.1.4.tgz#56b829461def9be63776e489e88c02199b7b046f"
+  integrity sha512-UXrL1r1yGpjkM3Es89/g55tQ3hDuEErcwK0Ykm/ugOE3IMXO3qisdyCBXwDkBkYAySBrHS/O1+HPj76bKn5e5w==
   dependencies:
     axios "^0.19.0"
     base-event-object "^0.5.0"
