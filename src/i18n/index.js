@@ -6,7 +6,7 @@ Vue.use(I18n)
 Vue.mixin(i18nMixin)
 
 I18n.prototype.loadLanguage = function (locale) {
-  return import(/* webpackChunkName: "lang-[request]" */ `../../public/data/i18n/${locale}.json`)
+  return import(/* webpackChunkName: "lang-[request]" */ `../../public/data/i18n/${locale}.json`).then(res => res.default)
 }
 
 const numberFormats = {

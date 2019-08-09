@@ -29,9 +29,9 @@
 
 <script>
 import { mapState } from 'vuex'
-import Breadcrumb from '@/components/Breadcrumb'
-import Hamburger from '@/components/Hamburger'
-import LanguageSelector from '@/components/LanguageSelector'
+import Breadcrumb from '@/components/widget/Breadcrumb'
+import Hamburger from '@/components/widget/Hamburger'
+import LanguageSelector from '@/components/widget/LanguageSelector'
 
 export default {
   components: {

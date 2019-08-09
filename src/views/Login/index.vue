@@ -60,7 +60,7 @@
 
 <script>
 import metaMixin from '@/core/meta/mixin'
-import LanguageSelector from '@/components/LanguageSelector'
+import LanguageSelector from '@/components/widget/LanguageSelector'
 
 const namespace = 'views.Login'
 export default {

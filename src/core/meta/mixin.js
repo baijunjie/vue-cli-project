@@ -6,7 +6,7 @@ export default {
       htmlAttrs: {
         lang: this.$i18n.locale
       },
-      title: namespace.match(/home$/i) ? '' : this.$t(this.$route.meta.title),
+      title: this.$route.name === 'home' ? '' : this.$t(this.$route.meta.title),
       titleTemplate: (titleChunk) => {
         const siteName = this.$t('common.siteName')
         return titleChunk ? `${titleChunk} | ${siteName}` : siteName

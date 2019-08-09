@@ -1,21 +1,18 @@
 import Vue from 'vue'
-
-const permission = {
-  roles: [ 'ROLE_ADMIN', 'ROLE_DEVELOPER', 'ROLE_ANALYST', 'ROLE_SUPPORT_SPECIALIST', 'ROLE_VIEW_ONLY' ],
-  map: {
-    'admin__demo-read': [ 1, 1, 1, 1, 1 ]
-  }
-}
+import { permission } from '@/settings'
 
 let permissionMap = {}
 
 export function generatePermissionMap (role) {
-  const index = permission.roles.indexOf(role)
-  if (index < 0) return {}
   permissionMap = {}
-  for (const [ key, arr ] of Object.entries(permission.map)) {
-    permissionMap[key] = !!arr[index]
+
+  const index = permission.roles.indexOf(role)
+  if (index >= 0) {
+    for (const [ key, arr ] of Object.entries(permission.map)) {
+      permissionMap[key] = !!arr[index]
+    }
   }
+
   return permissionMap
 }
 

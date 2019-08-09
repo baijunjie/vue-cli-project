@@ -7,7 +7,7 @@ export default {
   state () {
     const userData = cache.get('userData') || {}
     return {
-      info: userData.info,
+      info: userData.info || {},
       token: userData.token,
       role: userData.role,
       permissionMap: null
@@ -45,7 +45,7 @@ export default {
       )
     },
     CLEAR_USER (state) {
-      state.info = null
+      state.info = {}
       state.token = ''
       state.role = ''
       state.permissionMap = null
