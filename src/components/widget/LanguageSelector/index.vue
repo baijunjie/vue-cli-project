@@ -10,7 +10,7 @@
         :command="locale"
         :disabled="locale === $i18n.locale"
       >
-        {{ text }}
+        <span role="img" :aria-label="text">{{ iconMap[locale] }}</span> {{ text }}
       </el-dropdown-item>
     </el-dropdown-menu>
   </el-dropdown>
@@ -18,6 +18,17 @@
 
 <script>
 export default {
+  props: {
+    iconMap: {
+      type: Object,
+      default: () => ({
+        'ja': '🇯🇵',
+        'en': '🇺🇸',
+        'zh-CN': '🇨🇳',
+        'zh-TW': '🇭🇰'
+      })
+    }
+  },
   methods: {
     change (locale) {
       this.$i18n.setLanguage(locale)
