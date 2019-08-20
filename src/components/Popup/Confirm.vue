@@ -96,7 +96,11 @@ export default {
       this.resolve = true
       if (result instanceof Promise) {
         this.loading = true
-        result.then(() => this.close())
+        result
+          .then(() => this.close())
+          .finally(() => {
+            this.loading = false
+          })
       } else {
         this.close()
       }
