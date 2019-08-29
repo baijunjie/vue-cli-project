@@ -17,7 +17,7 @@ export function generatePermissionMap (role) {
 }
 
 export function perm (permissionName) {
-  return permissionMap[permissionName]
+  return !permissionName || permissionMap[permissionName]
 }
 
 Vue.prototype.$perm = perm
@@ -35,7 +35,7 @@ Vue.prototype.$perm = perm
 Vue.directive('perm', function (el, binding, vnode) {
   const permissionName = binding.arg
   const { attr, className, disabled, readonly } = binding.modifiers
-  if (permissionMap[permissionName]) return
+  if (perm(permissionName)) return
 
   if (disabled || readonly) {
     if (attr) {
