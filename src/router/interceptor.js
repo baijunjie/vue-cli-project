@@ -1,6 +1,5 @@
 import store from '@/store'
 import { Message } from 'element-ui'
-import { asyncRoutes } from './routes'
 
 import NProgress from 'nprogress' // progress bar
 import 'nprogress/nprogress.css' // progress bar style
@@ -24,20 +23,20 @@ export default function (router) {
         NProgress.done()
       } else {
         try {
-          let permissionMap = store.getters['user/permissionMap']
-          if (permissionMap) {
+          if (store.getters['user/routes']) {
             next()
           } else {
-            permissionMap = await store.dispatch('user/generatePermissionMap')
-            const routes = router.filterRoutes(asyncRoutes, route => {
-              const perm = route.meta && route.meta.perm
-              return !perm || permissionMap[perm]
-            })
-            router.reset().setRoutes(routes)
+            const routes = await store.dispatch('user/resetRouter')
+            const target = findAvailableRoute(to, routes)
 
             // hack method to ensure that addRoutes is complete
             // set the replace: true, so the navigation will not leave a history record
-            next({ path: to.fullPath, params: to.params, query: to.query, replace: true })
+            next({
+              path: target.fullPath || target.path,
+              params: target.params,
+              query: target.query,
+              replace: true
+            })
             NProgress.done()
           }
         } catch (error) {
@@ -64,4 +63,29 @@ export default function (router) {
     // finish progress bar
     NProgress.done()
   })
+
+  function findAvailableRoute (to, routes) {
+    // 首先判断当前目标路由是否可用
+    let target = router.findRoute('path', to.path)
+
+    if (target) {
+      target.fullPath = target.fullPath || to.fullPath
+    }
+
+    if (target && target.redirect && !router.findRoute('path', target.redirect)) {
+      // 路由不可用
+      target = null
+    }
+
+    if (!target) {
+      // 找到第一个可访问路由
+      target = router.findFirstAvailableRoute(routes)
+    }
+
+    if (!target) {
+      target = to
+    }
+
+    return target
+  }
 }

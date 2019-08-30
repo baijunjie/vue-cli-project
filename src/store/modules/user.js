@@ -1,5 +1,7 @@
 import { cache } from '@bjj/utils-browser'
-import { generatePermissionMap } from '@/core/permission'
+import router from '@/router'
+import { asyncRoutes } from '@/router/routes'
+import { generatePermissionMap, perm } from '@/core/permission'
 // import { login, logout } from '@/api/user'
 
 export default {
@@ -10,7 +12,7 @@ export default {
       info: userData.info || {},
       token: userData.token,
       role: userData.role,
-      permissionMap: null
+      routes: null
     }
   },
   getters: {
@@ -23,8 +25,8 @@ export default {
     role (state) {
       return state.role
     },
-    permissionMap (state) {
-      return state.permissionMap
+    routes (state) {
+      return state.routes
     }
   },
   mutations: {
@@ -48,11 +50,11 @@ export default {
       state.info = {}
       state.token = ''
       state.role = ''
-      state.permissionMap = null
+      state.routes = null
       cache.del('userData')
     },
-    SET_PERMISSION_MAP (state, data) {
-      state.permissionMap = data
+    SET_ROUTES (state, routes) {
+      state.routes = routes
     }
   },
   actions: {
@@ -73,10 +75,21 @@ export default {
       commit('CLEAR_USER')
       // await logout()
     },
-    generatePermissionMap ({ commit, getters }) {
-      const permissionsMap = generatePermissionMap(getters.role)
-      commit('SET_PERMISSION_MAP', permissionsMap)
-      return permissionsMap
+    resetRouter ({ commit, state }) {
+      const role = state.role
+
+      let routes = []
+      if (role) {
+        generatePermissionMap(role)
+        routes = router.filterRoutes(asyncRoutes, route => {
+          return perm(route.meta && route.meta.perm)
+        })
+
+        router.reset().setRoutes(routes)
+        commit('SET_ROUTES', routes)
+      }
+
+      return routes
     }
   }
 }

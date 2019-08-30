@@ -5,15 +5,21 @@ import ElementUI from 'element-ui'
 // import Popup from '@/components/Popup'
 // Vue.use(Popup)
 
-// you do not need `import EsSwitch from '@/components/ui/EsSwitch'`
+// you do not need `import EsMenu from '@/components/ui/EsMenu'`
 // it will auto require all UI components from components file
 // const modulesFiles = require.context('@/components/elestyle', true, /\.vue$/)
 // modulesFiles.keys().forEach(modulePath => {
-//   // set './EsSwitch.vue'       => 'EsSwitch'
-//   // set './EsSwitch/index.vue' => 'EsSwitch'
-//   const moduleName = modulePath.replace(/^\.\/(.*?)(\/index)?\.\w+$/, '$1')
-//   // Shielding child components
-//   if (moduleName.indexOf('/') >= 0) return
+//   const moduleName = modulePath
+//     // './EsMenu.vue'       => 'EsMenu'
+//     // './EsMenu/index.vue' => 'EsMenu'
+//     // './EsMenu/Item.vue'  => 'EsMenu/Item'
+//     .replace(/^\.\/(.*?)(\/index)?\.\w+$/, '$1')
+//     // 'EsMenu/Item'  => 'EsMenuItem'
+//     .replace('/', '')
+
+//   // Shielding private child components
+//   if (moduleName.indexOf('_') >= 0) return
+
 //   const value = modulesFiles(modulePath)
 //   Vue.component(moduleName, value.default)
 // })
