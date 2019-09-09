@@ -1,14 +1,21 @@
+import settings from '@/settings'
+
 export default {
   metaInfo () {
-    const { namespace } = this.$options
-    if (!namespace || !this.$i18n || !this.$route || !this.$route.meta.title) return {}
+    if (!this.$i18n || !this.$route || !this.$route.meta.title) return {}
+
+    let title = ''
+    if (this.$route.name !== 'home' && this.$route.meta.title) {
+      title = this.$te(this.$route.meta.title) ? this.$t(this.$route.meta.title) : this.$route.meta.title
+    }
+
     return {
       htmlAttrs: {
         lang: this.$i18n.locale
       },
-      title: this.$route.name === 'home' ? '' : this.$t(this.$route.meta.title),
+      title,
       titleTemplate: (titleChunk) => {
-        const siteName = this.$t('common.siteName')
+        const siteName = settings.name
         return titleChunk ? `${titleChunk} | ${siteName}` : siteName
       }
     }

@@ -33,10 +33,10 @@
           @click="onResolve"
         >
           <v-progress-circular class="mr-2" v-if="loading" :size="16" :width="2" indeterminate></v-progress-circular>
-          <span v-text="loading ? loadingText || $t('common.loading') : resolveText || $t('common.ok')"></span>
+          <span v-text="loading ? loadingText || $t('status.loading') : resolveText || $t('common.ok')"></span>
           <template v-slot:loader>
             <v-progress-circular class="mr-2" v-if="loading" :size="16" :width="2" indeterminate></v-progress-circular>
-            <span v-text="loadingText || $t('common.loading')"></span>
+            <span v-text="loadingText || $t('status.loading')"></span>
           </template>
         </v-btn>
       </v-card-actions>

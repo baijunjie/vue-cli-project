@@ -5,14 +5,15 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
+    "analysis": "VUE_APP_ANALYSIS=true vue-cli-service build",
     "lint": "vue-cli-service lint",
     "test:e2e": "vue-cli-service test:e2e",
     "test:unit": "vue-cli-service test:unit"
   },
   "dependencies": {
     "@bjj/utils": "^0.1.0",
-    "@bjj/utils-browser": "^0.1.0",
-    "@bjj/vue": "^0.1.4",
+    "@bjj/utils-browser": "^0.1.1",
+    "@bjj/vue": "^0.1.7",
     "@fortawesome/fontawesome-free": "^5.9.0",
     "axios": "^0.19.0",
     "core-js": "^2.6.5",
@@ -26,7 +27,8 @@
     "vue-i18n": "^8.11.2",
     "vue-meta": "^2.0.4",
     "vue-router": "^3.0.3",
-    "vuex": "^3.0.1"
+    "vuex": "^3.0.1",
+    "webpack-bundle-analyzer": "^3.4.1"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.9.0",

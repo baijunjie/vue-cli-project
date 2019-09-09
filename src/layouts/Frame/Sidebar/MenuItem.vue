@@ -10,7 +10,7 @@
         class="nest-menu"
       />
     </el-submenu>
-    <v-link v-else :to="item.path">
+    <v-link v-else-if="!item.meta.menuHidden" :to="item.path">
       <el-menu-item :index="item.path">
         <menu-item-inner :item="item" />
       </el-menu-item>

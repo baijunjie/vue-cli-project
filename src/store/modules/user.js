@@ -1,7 +1,5 @@
 import { cache } from '@bjj/utils-browser'
-import router from '@/router'
-import { asyncRoutes } from '@/router/routes'
-import { generatePermissionMap, perm } from '@/core/permission'
+import { resetRoutesByRole } from '@/router'
 // import { login, logout } from '@/api/user'
 
 export default {
@@ -80,12 +78,7 @@ export default {
 
       let routes = []
       if (role) {
-        generatePermissionMap(role)
-        routes = router.filterRoutes(asyncRoutes, route => {
-          return perm(route.meta && route.meta.perm)
-        })
-
-        router.reset().setRoutes(routes)
+        routes = resetRoutesByRole(role)
         commit('SET_ROUTES', routes)
       }
 

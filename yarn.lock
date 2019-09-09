@@ -670,20 +670,20 @@
     lodash "^4.17.11"
     to-fast-properties "^2.0.0"
 
-"@bjj/utils-browser@^0.1.0":
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/@bjj/utils-browser/-/utils-browser-0.1.0.tgz#931062fa29b6b503e8fadf2f340c1f5fc0d2821c"
-  integrity sha512-gD4/a9IIUZQw+Xn7awy6FiO1adEnv17Fig/Qk5QPt/d8lhgvD/m2LBPfOgUwxDjkNDMd3Ny7l8syVH1RTy+d7A==
+"@bjj/utils-browser@^0.1.1":
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/@bjj/utils-browser/-/utils-browser-0.1.1.tgz#64addac8692466588923056a76514ce43f2d0d2e"
+  integrity sha512-xGbdTrnOTI0Op+ukopLPJ1pLmKvzo8Of1i0gAqx2mQUY6lRXJMJY4Hbau0NKYj7dNjF6nijRJbbN33KuXKrL/Q==
 
 "@bjj/utils@^0.1.0":
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/@bjj/utils/-/utils-0.1.0.tgz#0c884e8371330f66d6645b15dca4fdbfd92ab928"
   integrity sha512-bFy1RPSY5MwCeG6VofY8rT+Ut1hf/o/Zt5FWxVTvJWq3KizICQxBohpwwOroMigS+3wpbERObep/NKcc+3L2yA==
 
-"@bjj/vue@^0.1.4":
-  version "0.1.4"
-  resolved "https://registry.yarnpkg.com/@bjj/vue/-/vue-0.1.4.tgz#56b829461def9be63776e489e88c02199b7b046f"
-  integrity sha512-UXrL1r1yGpjkM3Es89/g55tQ3hDuEErcwK0Ykm/ugOE3IMXO3qisdyCBXwDkBkYAySBrHS/O1+HPj76bKn5e5w==
+"@bjj/vue@^0.1.7":
+  version "0.1.7"
+  resolved "https://registry.yarnpkg.com/@bjj/vue/-/vue-0.1.7.tgz#24e432e2318823d53d6214ac36dfff7ee452063c"
+  integrity sha512-TpA4BuIExRx7x7kzUXGI9unj9wUOurV6fIm2OYAO5D2IV1iFkPlCAbpnlYurI8PCi/SlMZ0qn/CehdD+/f+0Aw==
   dependencies:
     axios "^0.19.0"
     base-event-object "^0.5.0"
@@ -6614,6 +6614,11 @@ lodash@^4.17.14:
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.14.tgz#9ce487ae66c96254fe20b599f21b6816028078ba"
   integrity sha512-mmKYbW3GLuJeX+iGP+Y7Gp1AiGHGbXHCOh/jZmrawMmsE7MS4znI3RL2FsjbqOyMayHInjOeykW7PEajUk1/xw==
 
+lodash@^4.17.15:
+  version "4.17.15"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.15.tgz#b447f6670a0455bbfeedd11392eff330ea097548"
+  integrity sha512-8xOcRHvCjnocdS5cpwXQXVzmmh5e5+saE2QGoeQmbKmRS6J3VQppPOIt0MnmE+4xlZoumy0GPG0D0MVIQbNA1A==
+
 log-symbols@2.2.0, log-symbols@^2.2.0:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/log-symbols/-/log-symbols-2.2.0.tgz#5740e1c5d6f0dfda4ad9323b5332107ef6b4c40a"
@@ -10310,6 +10315,25 @@ webpack-bundle-analyzer@^3.3.0:
     filesize "^3.6.1"
     gzip-size "^5.0.0"
     lodash "^4.17.10"
+    mkdirp "^0.5.1"
+    opener "^1.5.1"
+    ws "^6.0.0"
+
+webpack-bundle-analyzer@^3.4.1:
+  version "3.4.1"
+  resolved "https://registry.yarnpkg.com/webpack-bundle-analyzer/-/webpack-bundle-analyzer-3.4.1.tgz#430544c7ba1631baccf673475ca8300cb74a3c47"
+  integrity sha512-Bs8D/1zF+17lhqj2OYmzi7HEVYqEVxu7lCO9Ff8BwajenOU0vAwEoV8e4ICCPNZAcqR1PCR/7o2SkW+cnCmF0A==
+  dependencies:
+    acorn "^6.0.7"
+    acorn-walk "^6.1.1"
+    bfj "^6.1.1"
+    chalk "^2.4.1"
+    commander "^2.18.0"
+    ejs "^2.6.1"
+    express "^4.16.3"
+    filesize "^3.6.1"
+    gzip-size "^5.0.0"
+    lodash "^4.17.15"
     mkdirp "^0.5.1"
     opener "^1.5.1"
     ws "^6.0.0"

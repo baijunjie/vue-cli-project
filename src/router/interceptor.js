@@ -40,6 +40,7 @@ export default function (router) {
             NProgress.done()
           }
         } catch (error) {
+          console.log(error)
           // remove token and go to login page to re-login
           await store.dispatch('user/logout')
           Message.error(error || 'Has Error')
@@ -65,20 +66,11 @@ export default function (router) {
   })
 
   function findAvailableRoute (to, routes) {
-    // 首先判断当前目标路由是否可用
-    let target = router.findRoute('path', to.path)
+    let target
 
-    if (target) {
-      target.fullPath = target.fullPath || to.fullPath
-    }
-
-    if (target && target.redirect && !router.findRoute('path', target.redirect)) {
-      // 路由不可用
-      target = null
-    }
-
-    if (!target) {
-      // 找到第一个可访问路由
+    // 如果是首页，且不可访问
+    if (to.path === '/' && !router.isAvailableRoute(router.findRoute('path', to.path))) {
+      // 重新获取第一个可访问的路由
       target = router.findFirstAvailableRoute(routes)
     }
 

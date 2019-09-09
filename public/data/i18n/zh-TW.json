@@ -9,6 +9,7 @@
   "common__<<<": {
     "action": "操作",
     "back": "戻る",
+    "backToHome": "ホームへ",
     "cancel": "キャンセル",
     "close": "閉じる",
     "content": "内容",
@@ -19,7 +20,6 @@
     "exec": "実行",
     "hint": "ヒント",
     "keyword": "キーワード",
-    "loading": "送信中...",
     "login": "ログイン",
     "logout": "ログアウト",
     "ok": "OK",
@@ -52,17 +52,12 @@
   "status__<<<": {
     "deleted": "削除済み",
     "finished": "終了済み",
+    "loading": "送信中...",
     "published": "公開中",
     "suspended": "一時停止",
     "unpublished": "未公開"
   },
   "views__<<<": {
-    "404": {
-      "backToHome": "ホームに帰る",
-      "messageContent": "入力したURLが正しいことを確認するか、または下のボタンをクリックしてホームページに戻ってください。",
-      "messageTitle": "ページが見つかりません",
-      "name": "404"
-    },
     "Home": {
       "name": "Dashboard",
       "welcome": "ようこそ"
@@ -83,6 +78,11 @@
         "name": "Foo"
       },
       "name": "Demo"
+    },
+    "exception": {
+      "403": "アクセス権限がありません",
+      "404": "該当ページが存在しません",
+      "500": "エラーが発生しました。しばらくしてからもう一度お試しください"
     }
   }
 }

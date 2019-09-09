@@ -1,6 +1,8 @@
 const path = require('path')
+const webpack = require('webpack')
 const I18nCombineWebpackPlugin = require('i18n-combine-webpack-plugin')
 const TerserPlugin = require('terser-webpack-plugin')
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 
 module.exports = {
   publicPath: process.env.VUE_APP_BASE_URL,
@@ -8,6 +10,7 @@ module.exports = {
   configureWebpack: () => {
     const config = {
       plugins: [
+        new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
         new I18nCombineWebpackPlugin({
           src: path.join(__dirname, './src/**/ja.json'),
           dist: path.join(__dirname, './public/data/i18n'),
@@ -22,6 +25,10 @@ module.exports = {
           }
         })
       ]
+    }
+
+    if (process.env.VUE_APP_ANALYSIS) {
+      config.plugins.push(new BundleAnalyzerPlugin())
     }
 
     if (process.env.NODE_ENV === 'production') {

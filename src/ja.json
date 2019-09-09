@@ -7,7 +7,7 @@
     "close": "閉じる",
     "search": "検索",
     "back": "戻る",
-    "loading": "送信中...",
+    "backToHome": "ホームへ",
     "create": "新規",
     "exec": "実行",
     "edit": "編集",
@@ -46,6 +46,7 @@
   },
 
   "status": {
+    "loading": "送信中...",
     "published": "公開中",
     "unpublished": "未公開",
     "suspended": "一時停止",
