@@ -34,7 +34,12 @@ export default {
   },
   methods: {
     backToHome () {
-      this.$router.push('/')
+      if (this.$router.isAvailableRoute(this.$router.findRoute('path', '/'))) {
+        this.$router.push('/')
+      } else {
+        const target = this.$router.findFirstAvailableRoute(this.$store.getters['user/routes'])
+        if (target) this.$router.push(target)
+      }
     }
   }
 }
@@ -50,17 +55,17 @@ export default {
 
   &__img {
     display: inline-block;
-    padding-right: 52px;
+    padding: 20px;
     zoom: 1;
 
     img {
       height: 360px;
-      max-width: 430px;
     }
   }
 
   &__content {
     display: inline-block;
+    padding: 20px;
     flex: auto;
   }
 

@@ -11,7 +11,7 @@ Router.prototype.isAvailableRoute = function (route) {
   if (!route) return false
 
   if (route.redirect) {
-    return this.isAvailableRoute(router.findRoute('path', route.redirect))
+    return this.isAvailableRoute(this.findRoute('path', route.redirect))
   }
 
   return !route.meta._403
