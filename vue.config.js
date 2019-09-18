@@ -7,6 +7,11 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPl
 module.exports = {
   publicPath: process.env.VUE_APP_BASE_URL,
 
+  transpileDependencies: [
+    '@bjj',
+    'base-event-object'
+  ],
+
   configureWebpack: () => {
     const config = {
       plugins: [

@@ -6,7 +6,7 @@ export default {
 
     let title = ''
     if (this.$route.name !== 'home' && this.$route.meta.title) {
-      title = this.$te(this.$route.meta.title) ? this.$t(this.$route.meta.title) : this.$route.meta.title
+      title = this.$i18n.isDefine(this.$route.meta.title) ? this.$t(this.$route.meta.title) : this.$route.meta.title
     }
 
     return {
