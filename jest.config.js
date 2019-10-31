@@ -1,4 +1,7 @@
 module.exports = {
+  setupFiles: [
+    // './tests/unit/setup.js' // 测试环境全局预设文件
+  ],
   moduleFileExtensions: [
     'js',
     'jsx',
@@ -11,7 +14,7 @@ module.exports = {
     '^.+\\.jsx?$': 'babel-jest'
   },
   transformIgnorePatterns: [
-    '/node_modules/'
+    'node_modules/(?!(@bjj)/)' // 转换忽略除 @bjj 以外的所有模块
   ],
   moduleNameMapper: {
     '^@/(.*)$': '<rootDir>/src/$1'
