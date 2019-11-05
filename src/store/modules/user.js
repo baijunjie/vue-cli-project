@@ -2,6 +2,13 @@ import { cache } from '@bjj/utils-browser'
 import { resetRoutesByRole } from '@/router'
 // import { login, logout } from '@/api/user'
 
+// TOKEN 改变之后，页面进行 reload
+window.addEventListener('storage', e => {
+  if (event.key.match(/userData/)) {
+    window.location.reload()
+  }
+})
+
 export default {
   namespaced: true,
   state () {

@@ -27,29 +27,28 @@ const err = (error) => {
 
   if (error.response) {
     const { data, status } = error.response
-    const token = store.getters['user/token']
-    if (status === 401) {
-      Message({
-        message: i18n.t('error.unauthorized'),
-        type: 'error',
-        duration: 5 * 1000
-      })
-      if (token) {
-        store.dispatch('user/logout').then(() => {
-          setTimeout(() => {
-            window.location.reload()
-          }, 1500)
-        })
+    let message = i18n.isDefine(key) && i18n.t(key)
+
+    if (!message) {
+      if (status === 401) {
+        message = i18n.t('error.unauthorized')
+        if (store.getters['user/token']) {
+          store.dispatch('user/logout').then(() => {
+            setTimeout(() => {
+              window.location.reload()
+            }, 1500)
+          })
+        }
+      } else {
+        message = data.message || i18n.t('error.unknown')
       }
-    } else {
-      const key = `error.${data.code}`
-      const message = i18n.te(key, i18n.fallbackLocale) ? i18n.t(key) : data.message
-      Message({
-        message: message || i18n.t('error.unknown'),
-        type: 'error',
-        duration: 5 * 1000
-      })
     }
+
+    Message({
+      message,
+      type: 'error',
+      duration: 5 * 1000
+    })
   }
 
   return Promise.reject(error)
